@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvMainQuest">
 
         <LinearLayout
-            android:id="@+id/llanswer1"
+            android:id="@+id/llAnswer1"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/shape_rounded_container"
@@ -82,7 +82,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/answer2"
+            android:id="@+id/llAnswer2"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="18dp"
@@ -92,6 +92,7 @@
 
 
             <TextView
+                android:id="@+id/tv2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"
@@ -101,6 +102,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tvAnsw2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -140,7 +142,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/answer4"
+            android:id="@+id/llAnswer4"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginTop="18dp"
@@ -150,6 +152,7 @@
 
 
             <TextView
+                android:id="@+id/tv4"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"
@@ -159,6 +162,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tvAnsw4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -225,7 +229,7 @@
         >
 
         <ImageView
-            android:id="@+id/imgViewLike"
+            android:id="@+id/imgViewMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
@@ -235,26 +239,26 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvCorrectText"
+            android:id="@+id/tvMessageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Correct!"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imgViewLike"
-            app:layout_constraintStart_toEndOf="@+id/imgViewLike"
-            app:layout_constraintTop_toTopOf="@+id/imgViewLike" />
+            app:layout_constraintBottom_toBottomOf="@+id/imgViewMessage"
+            app:layout_constraintStart_toEndOf="@+id/imgViewMessage"
+            app:layout_constraintTop_toTopOf="@+id/imgViewMessage" />
 
         <Button
-            android:id="@+id/btnContinueLike"
+            android:id="@+id/btnContinue"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginHorizontal="36dp"
             android:layout_marginTop="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCorrectText"
+            app:layout_constraintTop_toBottomOf="@+id/tvMessageText"
             android:backgroundTint="#FFFFFF"
             android:text="Continue"
             android:textAllCaps="true"
@@ -262,63 +266,6 @@
             android:textSize="22sp"
 
             />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!--НЕ ВЕРНЫЙ ОТВЕТ -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/viewWrong"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="#FA4169"
-        android:paddingBottom="15dp"
-        android:visibility="gone"
-        >
-
-        <ImageView
-            android:id="@+id/imgViewUnlike"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="18dp"
-            android:src="@drawable/ic_wrong"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvWrongText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Wrong!"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imgViewUnlike"
-            app:layout_constraintStart_toEndOf="@+id/imgViewUnlike"
-            app:layout_constraintTop_toTopOf="@+id/imgViewUnlike" />
-
-        <Button
-            android:id="@+id/btnContinueWrong"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginHorizontal="36dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWrongText"
-            android:backgroundTint="#FFFFFF"
-            android:text="Continue"
-            android:textAllCaps="true"
-            android:textColor="#FA4169"
-            android:textSize="22sp"
-
-            />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

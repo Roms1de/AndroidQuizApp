@@ -1,6 +1,8 @@
 package com.example.quizapp
 
 import android.os.Bundle
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -24,127 +26,132 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        binding.llanswer1.setOnClickListener {
-            markAnswerUncorrect()
-        }
-        binding.llAnswer3.setOnClickListener {
-            markAnswerCorrect()
-        }
 
-        binding.btnContinueLike.setOnClickListener {
-            markAnswerNeutral();
-        }
 
-        binding.btnContinueWrong.setOnClickListener {
-            markAnswerNeutral();
-        }
 
     }
 
-    private fun markAnswerNeutral() {
+    private fun markAnswerNeutral(
+        llAnswer: LinearLayout,
+        tv: TextView,
+        tvAnswer: TextView
+    ) {
 
-        with(binding) {
-            for (layout in listOf(llanswer1, llAnswer3)) {
-                layout.background = ContextCompat.getDrawable(
+        llAnswer.background = ContextCompat.getDrawable(
+            this@MainActivity,
+            R.drawable.shape_rounded_container
+        )
+
+        tvAnswer.setTextColor(
+            ContextCompat.getColor(
+                this@MainActivity,
+                R.color.textvariantcolor
+            )
+        )
+
+
+
+        tv.apply {
+            background = ContextCompat.getDrawable(
+                this@MainActivity,
+                R.drawable.shape_rounded_variant
+            )
+            setTextColor(
+                ContextCompat.getColor(
                     this@MainActivity,
-                    R.drawable.shape_rounded_container
+                    R.color.textvariantcolor
                 )
-            }
-
-            for (textView in listOf(tvAnsw1, tvAnsw3)) {
-                textView.setTextColor(
-                    ContextCompat.getColor(
-                        this@MainActivity,
-                        R.color.textvariantcolor
-                    )
-                )
-            }
-
-            for (textView in listOf(tv1, tv3)) {
-                textView.apply {
-                    background = ContextCompat.getDrawable(
-                        this@MainActivity,
-                        R.drawable.shape_rounded_variant
-                    )
-                    setTextColor(
-                        ContextCompat.getColor(
-                            this@MainActivity,
-                            R.color.textvariantcolor
-                        )
-                    )
-                }
-            }
-
-            viewNeutral.isVisible = true
-            viewWrong.isVisible = false
-            viewCorrect.isVisible = false
-
-
+            )
         }
     }
 
-    private fun markAnswerCorrect() {
 
-        binding.llAnswer3.background = ContextCompat.getDrawable(
+    private fun markAnswerCorrect(
+        llAnswer: LinearLayout,
+        tv: TextView,
+        tvAnswer: TextView
+    ) {
+
+        llAnswer.background = ContextCompat.getDrawable(
             this@MainActivity,
             R.drawable.shape_rounded_container_correct
         )
 
-        binding.tv3.background = ContextCompat.getDrawable(
+        tv.background = ContextCompat.getDrawable(
             this@MainActivity,
             R.drawable.shape_rounded_variant_correct
         )
 
-        binding.tv3.setTextColor(
+        tv.setTextColor(
             ContextCompat.getColor(
                 this@MainActivity,
                 R.color.white
             )
         )
 
-        binding.tvAnsw3.setTextColor(
+        tvAnswer.setTextColor(
             ContextCompat.getColor(
                 this@MainActivity,
                 R.color.correctanswercolor
             )
         )
-        binding.viewCorrect.isVisible = true
-        binding.viewWrong.isVisible = false
-        binding.viewNeutral.isVisible = false
-
-
     }
 
-    private fun markAnswerUncorrect() {
+    private fun markAnswerIncorrect(
+        llAnswer: LinearLayout,
+        tv: TextView,
+        tvAnswer: TextView
+    ) {
 
-        binding.llanswer1.background = ContextCompat.getDrawable(
+        llAnswer.background = ContextCompat.getDrawable(
             this@MainActivity,
             R.drawable.shape_rounded_container_uncorrect
         )
 
-        binding.tv1.background = ContextCompat.getDrawable(
+        tv.background = ContextCompat.getDrawable(
             this@MainActivity,
             R.drawable.shape_rounded_variant_uncorrect
         )
 
-        binding.tv1.setTextColor(
+        tv.setTextColor(
             ContextCompat.getColor(
                 this@MainActivity,
                 R.color.white
             )
         )
 
-        binding.tvAnsw1.setTextColor(
+        tvAnswer.setTextColor(
             ContextCompat.getColor(
                 this@MainActivity,
                 R.color.uncorrectanswercolor
             )
         )
+    }
+
+    private fun showResultMessage(isCorrect: Boolean) {
+        val color: Int
+        val messageText: String
+        val resultIconResource: Int
+
+        if (isCorrect) {
+            color = ContextCompat.getColor(this, R.color.correctanswercolor)
+            resultIconResource = R.drawable.ic_correct
+            messageText = "Correct!"
+        } else {
+            color = ContextCompat.getColor(this, R.color.uncorrectanswercolor)
+            resultIconResource = R.drawable.ic_wrong
+            messageText = "InCorrect!"
+        }
 
 
-        binding.viewWrong.isVisible = true
-        binding.viewCorrect.isVisible = false
-        binding.viewNeutral.isVisible = false
+        with(binding) {
+            viewNeutral.isVisible = false
+            viewCorrect.isVisible = true
+            btnContinue.setTextColor(color)
+            viewCorrect.setBackgroundColor(color)
+            tvMessageText.text = messageText
+            imgViewMessage.setImageResource(resultIconResource)
+        }
 
     }
 }
