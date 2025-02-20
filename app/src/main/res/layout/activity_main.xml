@@ -33,6 +33,7 @@
         android:paddingHorizontal="45dp"
         android:paddingBottom="50dp"
 
+
         android:text="Что такое алгоритм?"
 
         android:textSize="26sp"
@@ -43,6 +44,7 @@
          />
 
     <LinearLayout
+        android:id="@+id/llAnswersContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="33dp"
